@@ -6,7 +6,6 @@ class AboutControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'about/index'
     assert_equal 'About', assigns(:page_title)
-    assert_select 'title', 'About'
-    assert_tag 'title', :content => 'About'
+    assert_select 'title', 'About
   end
 end

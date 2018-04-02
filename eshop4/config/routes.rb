@@ -1,7 +1,22 @@
 Rails.application.routes.draw do
-  get 'about/index'
+
   root to: 'about#index'
+
   get 'about' => 'about#index'
+  get 'admin/producer' => 'admin/producer#index'
+
+  get 'about/index'
+
+  get 'admin/producer/new'
+  post 'admin/producer/create'
+  get 'admin/producer/edit'
+  post 'admin/producer/update'
+  post 'admin/producer/destroy'
+  get 'admin/producer/show'
+  get 'admin/producer/show/:id' => 'admin/producer#show'
+  get 'admin/producer/index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

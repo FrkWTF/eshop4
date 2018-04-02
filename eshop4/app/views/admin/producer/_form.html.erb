@@ -1,0 +1,15 @@
+<% if @producer.errors.any? %>
+  <div id="errorExplanation">
+  <h2><%= pluralize(@producer.errors.count, "error") %> prohibited this publisher from being saved:</h2>
+    <ul>
+      <% @producer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <p><label for="producer_name">Nombre</label><br/>
+  <%= text_field 'producer', 'name' %></p>
+</div>
