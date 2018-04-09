@@ -1,2 +1,7 @@
-<h1>Admin::Supplier#edit</h1>
-<p>Find me in app/views/admin/supplier/edit.html.erb</p>
+<%= form_tag :action => 'update', :id => @supplier do %>
+    <%= render :partial => 'form' %>
+    <%= submit_tag 'Update supplier' %>
+  <% end %>
+  
+  <%= link_to 'Show', :action => 'show', :id => @supplier %> |
+  <%= link_to 'Back', :action => 'index' %>
