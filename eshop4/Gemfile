@@ -45,3 +45,8 @@ group :development do
   gem 'spring'
 end
 
+gem 'will_paginate', '3.0.7'
+
+gem 'RedCloth', '4.2.9'
+
+gem 'paperclip', '4.3.2'
