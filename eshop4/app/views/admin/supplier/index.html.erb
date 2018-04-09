@@ -1,2 +1,11 @@
-<h1>Admin::Supplier#index</h1>
-<p>Find me in app/views/admin/supplier/index.html.erb</p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  <%= render :partial => 'supplier', :collection => @supplier %>
+</table>
+
+<p><%= link_to 'Add a new supplier', :action => 'new' %></p>
