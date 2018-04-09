@@ -1,5 +1,33 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+  get 'supplier/new'
+  end
+
+  namespace :admin do
+  get 'supplier/create'
+  end
+
+  namespace :admin do
+  get 'supplier/edit'
+  end
+
+  namespace :admin do
+  get 'supplier/update'
+  end
+
+  namespace :admin do
+  get 'supplier/destroy'
+  end
+
+  namespace :admin do
+  get 'supplier/show'
+  end
+
+  namespace :admin do
+  get 'supplier/index'
+  end
+
   root to: 'about#index'
 
   get 'about' => 'about#index'
