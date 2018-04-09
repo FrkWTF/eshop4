@@ -61,10 +61,8 @@ class Admin::ProducerControllerTest < ActionController::TestCase
     assert_select 'table' do
       assert_select 'tr', Producer.count + 1
     end
-
     Producer.find_each do |a|
       assert_select 'td', a.name
     end
   end
-
 end
