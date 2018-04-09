@@ -34,7 +34,7 @@ class Admin::ProducerController < ApplicationController
   def destroy
     @producer = Producer.find(params[:id])
     @producer.destroy
-    flash[:notice] = "Productor borrado satisfactoriamente #{@producer.name}."
+    flash[:notice] = "Prodcutor borrado satisfactoriamente #{@producer.name}."
     redirect_to :action => 'index'
   end
 
