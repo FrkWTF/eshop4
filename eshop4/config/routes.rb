@@ -1,39 +1,21 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-  get 'supplier/new'
-  end
-
-  namespace :admin do
-  get 'supplier/create'
-  end
-
-  namespace :admin do
-  get 'supplier/edit'
-  end
-
-  namespace :admin do
-  get 'supplier/update'
-  end
-
-  namespace :admin do
-  get 'supplier/destroy'
-  end
-
-  namespace :admin do
-  get 'supplier/show'
-  end
-
-  namespace :admin do
-  get 'supplier/index'
-  end
-
   root to: 'about#index'
 
   get 'about' => 'about#index'
   get 'admin/producer' => 'admin/producer#index'
+  get 'admin/supplier' => 'admin/supplier#index'
 
   get 'about/index'
+
+  get 'admin/supplier/new'
+  post 'admin/supplier/create'
+  get 'admin/supplier/edit'
+  post 'admin/supplier/update'
+  post 'admin/supplier/destroy'
+  get 'admin/supplier/show'
+  get 'admin/supplier/show/:id' => 'admin/supplier#show'
+  get 'admin/supplier/index'
 
   get 'admin/producer/new'
   post 'admin/producer/create'

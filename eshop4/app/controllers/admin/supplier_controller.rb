@@ -10,7 +10,7 @@ class Admin::SupplierController < ApplicationController
         flash[:notice] = "Supplier #{@supplier.name} was succesfully created."
         redirect_to :action => 'index'
       else
-        @page_title = 'Create new author'
+        @page_title = 'Create new supplier'
         render :action => 'new'
       end
     end
