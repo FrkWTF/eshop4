@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class Admin::ProducerControllerTest < ActionController::TestCase
-  fixtures :producers
+ fixtures :producers
 
   test "new" do
     get :new
