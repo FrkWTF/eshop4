@@ -75,19 +75,16 @@ class Admin::SupplierControllerTest < ActionController::TestCase
     assert_select 'div#content' do
       assert_select 'h1', Supplier.find(1).name
     end
-    # assert_tag "h1", :content => Author.find(1).name
   end
 
   test "index" do
     get :index
     assert_response :success
     assert_select 'table' do
-      assert_select 'tr', Author.count + 1
+      assert_select 'tr', Supplier.count + 1
     end
-    # assert_tag :tag => 'table', :children => { :count => Author.count + 1, :only => {:tag => 'tr'} }
-    Author.find_each do |a|
+    Supplier.find_each do |a|
       assert_select 'td', a.name
-      # assert_tag :tag => 'td', :content => a.name
     end
   end
 

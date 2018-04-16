@@ -7,7 +7,7 @@ class Admin::SupplierControllerTest < ActionController::TestCase
     get :new
     assert_template 'admin/supplier/new'
     assert_select 'div#content' do
-      assert_select 'h1', 'Create new supplier'
+      assert_select 'h1', 'Crear nuevo proveedor'
       assert_select "form[action=\"/admin/supplier/create\"]"
     end
 
@@ -21,7 +21,7 @@ class Admin::SupplierControllerTest < ActionController::TestCase
       assert_response :redirect
       assert_redirected_to :action => 'index'      
     end
-    assert_equal 'supplier Joel Spolsky was succesfully created.', flash[:notice]
+    assert_equal 'Proveedor Joel Spolsky fue creado correctamente.', flash[:notice]
   end
 
   test "failing_create" do
@@ -40,7 +40,6 @@ class Admin::SupplierControllerTest < ActionController::TestCase
       assert_select '[name=?]', 'supplier[first_name]'
       assert_select '[value=?]', 'Joel'
     end
-    # assert_tag :tag => 'input', :attributes => { :name => 'author[first_name]', :value => 'Joel' }
     assert_select 'input' do
       assert_select '[type=?]', 'text'
       assert_select '[name=?]', 'supplier[last_name]'
@@ -58,12 +57,12 @@ class Admin::SupplierControllerTest < ActionController::TestCase
   test "test_destroy" do
     assert_difference(Supplier, :count, -1) do
       post :destroy, :id => 1
-      assert_equal flash[:notice], 'Succesfully deleted supplier Joel Spolsky.'
+      assert_equal flash[:notice], 'Se ha borrado correctamente el proveedor Joel Spolsky.'
       assert_response :redirect
       assert_redirected_to :action => 'index'
       get :index
       assert_response :success
-      assert_select 'div#notice', 'Succesfully deleted supplier Joel Spolsky.'
+      assert_select 'div#notice', 'Se ha borrado correctamente el proveedor Joel Spolsky.'
     end
   end
 
