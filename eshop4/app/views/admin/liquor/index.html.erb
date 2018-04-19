@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th><a href="?sort_by=producer_id">Publisher</a></th>
+    <th><a href="?sort_by=name">Name</a></th>
+    <th><a href="?sort_by=serial_number">Serial number</a></th>
+    <th colspan="3"></th>
+  </tr>
+
+<% @liquors.each do |liquor| %>
+  <tr>
+    <td><%= h liquor.producer.name %></td>
+    <td><%= h liquor.name %></td>
+    <td><%= h liquor.serial_number %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => liquor %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => liquor  %></td>
+    <td><%= button_to 'Delete', { :action => 'destroy', :id => liquor },
+                      data: { confirm: "Are you sure you want to delete liquor #{liquor.name}?" } %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<%= will_paginate @liquors, :page_links => false, :link_separator => ' | ',
+                          :previous_label => 'Previous page', :next_label => 'Next page' %>
+<p><%= link_to 'Add a new liquor', :action => 'new' %></p>

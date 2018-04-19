@@ -1,0 +1,56 @@
+<% if @liquor.errors.any? %>
+  <div id="errorExplanation">
+  <h2><%= pluralize(@liquor.errors.count, "error") %> prohibited this liquor from being saved:</h2>
+    <ul>
+      <% @liquor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <p><label for="liquor_name">Nombre</label><br/>
+  <%= text_field 'liquor', 'name' %></p>
+</div>
+
+<div class="field">
+  <p><label for="liquor_producer">Productor</label><br/>
+  <%= collection_select :liquor, :producer_id, @producers, :id, :name %></p>
+</div>
+  
+<div class="field">
+  <p><label for="liquor[supplier_ids][]">Suministradores</label><br/>
+  <%= select_tag 'liquor[supplier_ids][]', options_from_collection_for_select(@suppliers, :id, :name, 
+      @liquor.suppliers.collect{|supplier| supplier.id}), { :multiple => true, :size => 5 } %></p>
+</div>
+
+<div class="field"><p>
+  <label for="liquor_produced_at">Producido el</label><br/>
+  <%= datetime_select 'liquor', 'produced_at' %></p>
+</div>
+
+<div class="field">
+  <p><label for="liquor_serial_number">Número de serie</label><br/>
+  <%= text_field 'liquor', 'serial_number' %></p>
+</div>
+
+<div class="field">
+  <p><label for="liquor_blurb">Blurb</label><br/>
+  <%= text_area 'liquor', 'blurb' %></p>
+</div>
+
+<div class="field">
+  <p><label for="liquor_price">Precio</label><br/>
+  <%= text_field 'liquor', 'price' %></p>
+</div>
+
+<div class="field">
+  <% if @liquor.cover_image.exists? then %>
+    <dd><%= image_tag @liquor.cover_image.url %></dd>
+  <% else %>
+    <p> No existe imagen para el licor. Por favor añada una. </p>
+  <% end %>
+  <p><label for="liquor_cover_image">Cover image</label><br/>
+  <%= file_field 'liquor', :cover_image %></p>
+</div>
