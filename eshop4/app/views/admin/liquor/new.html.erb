@@ -1,0 +1,6 @@
+<%= form_tag "/admin/liquor/create", :multipart => true do %>
+    <%= render :partial => 'form' %>
+    <%= submit_tag 'Crear licor' %>
+<% end %>
+
+<%= link_to 'Atrás', :action => 'index' %>

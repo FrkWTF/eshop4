@@ -1,0 +1,6 @@
+<%= form_tag "/admin/liquor/update?id=#{@liquor.id}" , :multipart => true do %>
+    <%= render :partial => 'form' %>
+    <%= submit_tag 'Actualizar licor' %>
+<% end %>
+<%= link_to 'Mostrar' , :action => 'show' , :id => @liquor %> |
+<%= link_to 'Atrás' , :action => 'index' %>
