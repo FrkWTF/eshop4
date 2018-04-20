@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409101612) do
+ActiveRecord::Schema.define(version: 20180416105239) do
+
+  create_table "liquors", force: :cascade do |t|
+    t.string   "name",         limit: 255,   null: false
+    t.integer  "producer_id",  limit: 4,     null: false
+    t.datetime "producer_at"
+    t.string   "serialnumber", limit: 5
+    t.text     "blurb",        limit: 65535
+    t.float    "price",        limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "liquors", ["producer_id"], name: "fk_liquors_producers", using: :btree
+
+  create_table "liquors_suppliers", force: :cascade do |t|
+    t.integer  "liquor_id",   limit: 4, null: false
+    t.integer  "supplier_id", limit: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "liquors_suppliers", ["liquor_id"], name: "fk_liquors_suppliers_liquors", using: :btree
+  add_index "liquors_suppliers", ["supplier_id"], name: "fk_liquors_suppliers_suppliers", using: :btree
 
   create_table "producers", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -26,4 +49,7 @@ ActiveRecord::Schema.define(version: 20180409101612) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "liquors", "producers", name: "fk_liquors_producers", on_delete: :cascade
+  add_foreign_key "liquors_suppliers", "liquors", name: "fk_liquors_suppliers_liquors", on_delete: :cascade
+  add_foreign_key "liquors_suppliers", "suppliers", name: "fk_liquors_suppliers_suppliers", on_delete: :cascade
 end
