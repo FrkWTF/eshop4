@@ -2,17 +2,17 @@ class Admin::LiquorController < ApplicationController
   def new
     load_data
     @liquor = Liquor.new
-    @page_title = 'Create new liquor'
+    @page_title = 'Crear un nuevo Licor'
   end
 
   def create
     @liquor = Liquor.new(liquor_params)
     if @liquor.save
-      flash[:notice] = "Liquor #{@liquor.name} was succesfully created."
+      flash[:notice] = "Licor #{@liquor.name} creado correctamente."
       redirect_to :action => 'index'
     else
       load_data
-      @page_title = 'Create new liquor'
+      @page_title = 'Crear un nuevo Licor'
       render :action => 'new'
     end
   end
@@ -20,17 +20,17 @@ class Admin::LiquorController < ApplicationController
   def edit
     load_data
     @liquor = Liquor.find(params[:id])
-    @page_title = 'Edit liquor'
+    @page_title = 'Editar licor'
   end
 
   def update
     @liquor = Liquor.find(params[:id])
     if @liquor.update_attributes(liquor_params)
-      flash[:notice] = "Liquor #{@liquor.name} was succesfully updated."
+      flash[:notice] = "Licor #{@liquor.name} actualizado correctamente."
       redirect_to :action => 'show', :id => @liquor
     else
       load_data
-      @page_title = 'Edit liquor'
+      @page_title = 'Editar licor'
       render :action => 'edit'
     end
   end
@@ -38,7 +38,7 @@ class Admin::LiquorController < ApplicationController
   def destroy
     @liquor = Liquor.find(params[:id])
     @liquor.destroy
-    flash[:notice] = "Succesfully deleted liquor #{@liquor.name}."
+    flash[:notice] = "Correctamente borrado licor #{@liquor.name}."
     redirect_to :action => 'index'
   end
 
@@ -50,7 +50,7 @@ class Admin::LiquorController < ApplicationController
   def index
     sort_by = params[:sort_by]
     @liquors = Liquor.order(sort_by).paginate(:page => params[:page], :per_page => 5)
-    @page_title = 'Listing liquors'
+    @page_title = 'Lista de licores'
   end
 
   private

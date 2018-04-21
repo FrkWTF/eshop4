@@ -3,7 +3,7 @@ class CreateLiquorsAndLiquorsSuppliers < ActiveRecord::Migration
     create_table :liquors do |t|
       t.string :name, :limit => 255, :null => false
       t.integer :producer_id, :null => false
-      t.datetime :producer_at
+      t.datetime :produced_at
       t.string :serial_number, :limit => 5, :unique => true
       t.text :blurb
       t.float :price

@@ -11,26 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180416105239) do
-
-  create_table "liquors", force: :cascade do |t|
-    t.string   "name",         limit: 255,   null: false
-    t.integer  "producer_id",  limit: 4,     null: false
-    t.datetime "producer_at"
-    t.string   "serialnumber", limit: 5
-    t.text     "blurb",        limit: 65535
-    t.float    "price",        limit: 24
-    t.datetime "created_at"
-    t.datetime "updated_at"
-=======
-ActiveRecord::Schema.define(version: 20180419140917) do
+ActiveRecord::Schema.define(version: 20180421011103) do
 
   create_table "liquors", force: :cascade do |t|
     t.string   "name",                     limit: 255,   null: false
     t.integer  "producer_id",              limit: 4,     null: false
-    t.datetime "produced_at"
-    t.string   "serial_number",            limit: 13
+    t.datetime "producer_at"
+    t.string   "serial_number",            limit: 5
     t.text     "blurb",                    limit: 65535
     t.float    "price",                    limit: 24
     t.datetime "created_at"
@@ -39,7 +26,6 @@ ActiveRecord::Schema.define(version: 20180419140917) do
     t.string   "cover_image_content_type", limit: 255
     t.integer  "cover_image_file_size",    limit: 4
     t.datetime "cover_image_updated_at"
->>>>>>> 00727472de1d12f734cfbcceadb347dd1e588910
   end
 
   add_index "liquors", ["producer_id"], name: "fk_liquors_producers", using: :btree
