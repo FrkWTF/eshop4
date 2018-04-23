@@ -20,10 +20,10 @@ class LiquorTest < ActiveSupport::TestCase
   test "create" do
     liquor = Liquor.new(
       :name => 'Ruby on Rails',
-      :suppliers => Author.all,
+      :suppliers => Supplier.all,
       :producer_id => Producer.find(1).id,
       :produced_at => Time.now,
-      :serial_number => '123-123-123-1',
+      :serial_number => '123',
       :blurb => 'A great liquor',
       #:page_count => 375,
       :price => 45.5
@@ -38,9 +38,9 @@ class LiquorTest < ActiveSupport::TestCase
       :name => 'Pro Rails E-Commerce 8th Edition',
       :suppliers => [Supplier.find_by_first_name_and_last_name('Joel', 'Spolsky'),
                    Supplier.find_by_first_name_and_last_name('Jeremy', 'Keith')],
-      :poducer_id => apress.id,
-      :poduced_at => Time.now,
-      :serial_number => '123-123-123-x',
+      :producer_id => apress.id,
+      :produced_at => Time.now,
+      :serial_number => '123',
       :blurb => 'E-Commerce on Rails',
       #:page_count => 400,
       :price => 55.5
@@ -59,7 +59,7 @@ class LiquorTest < ActiveSupport::TestCase
                    Supplier.find_by_first_name_and_last_name('Jeremy', 'Keith')],
       :producer_id => Producer.find_by_name("Apress").id,
       :produced_at => Time.now,
-      :serial_number => '123-123-123-x',
+      :serial_number => '123',
       :blurb => 'E-Commerce on Rails',
       #:page_count => 400,
       :price => 55.5
