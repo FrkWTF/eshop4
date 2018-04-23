@@ -9,7 +9,7 @@
   <dd><%= @liquor.supplier_names %></dd>
   <dt>Número de serie</dt>
   <dd><%= @liquor.serial_number %></dd>
-  <dt>Blurb</dt>
+  <dt>Descripcion</dt>
   <%= RedCloth.new(@liquor.blurb).to_html.html_safe if @liquor.blurb %>
   <dt>Precio</dt>
   <dd><%= @liquor.price %></dd>

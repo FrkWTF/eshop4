@@ -18,10 +18,10 @@
   <p><label for="liquor_producer">Productor</label><br/>
   <%= collection_select :liquor, :producer_id, @producers, :id, :name %></p>
 </div>
-  
+
 <div class="field">
   <p><label for="liquor[supplier_ids][]">Suministradores</label><br/>
-  <%= select_tag 'liquor[supplier_ids][]', options_from_collection_for_select(@suppliers, :id, :name, 
+  <%= select_tag 'liquor[supplier_ids][]', options_from_collection_for_select(@suppliers, :id, :name,
       @liquor.suppliers.collect{|supplier| supplier.id}), { :multiple => true, :size => 5 } %></p>
 </div>
 
@@ -36,7 +36,7 @@
 </div>
 
 <div class="field">
-  <p><label for="liquor_blurb">Blurb</label><br/>
+  <p><label for="liquor_blurb">Descripcion</label><br/>
   <%= text_area 'liquor', 'blurb' %></p>
 </div>
 
@@ -51,6 +51,6 @@
   <% else %>
     <p> No existe imagen para el licor. Por favor añada una. </p>
   <% end %>
-  <p><label for="liquor_cover_image">Cover image</label><br/>
+  <p><label for="liquor_cover_image">Imagen</label><br/>
   <%= file_field 'liquor', :cover_image %></p>
 </div>
