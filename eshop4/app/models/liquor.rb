@@ -23,7 +23,7 @@ class Liquor < ActiveRecord::Base
     self.suppliers.map{|supplier| supplier.name}.join(", ")
   end
 
-  #def self.latest(num)
-  #  all.order("liquors.id desc").includes(:suppliers, :producer).limit(num)
-  #end
+  def self.latest(num)
+    all.order("liquors.id desc").includes(:suppliers, :producer).limit(num)
+  end
 end

@@ -1,33 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-  get 'liquor/new'
-  end
-
-  namespace :admin do
-  get 'liquor/create'
-  end
-
-  namespace :admin do
-  get 'liquor/edit'
-  end
-
-  namespace :admin do
-  get 'liquor/update'
-  end
-
-  namespace :admin do
-  get 'liquor/destroy'
-  end
-
-  namespace :admin do
-  get 'liquor/show'
-  end
-
-  namespace :admin do
-  get 'liquor/index'
-  end
-
-  root to: 'about#index'
+  root :to => 'catalog#index'
 
   get 'about' => 'about#index'
   get 'admin/producer' => 'admin/producer#index'
@@ -60,5 +32,9 @@ Rails.application.routes.draw do
   get 'admin/liquor/show'
   get 'admin/liquor/show/:id' => 'admin/liquor#show'
   get 'admin/liquor/index'
-
+  
+  get 'catalog/show'
+  get 'catalog/show/:id' => 'catalog#show'
+  get 'catalog/index'
+  get 'catalog/latest'
 end

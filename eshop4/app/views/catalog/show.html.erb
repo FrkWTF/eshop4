@@ -1,0 +1,16 @@
+<h2>by <%=@liquor.supplier_names %></h2>
+<% if @liquor.cover_image.exists? then %>
+  <dd><%= image_tag @liquor.cover_image.url %></dd>
+<% else %>
+  <p>No hay imagen disponible.</p>
+<% end %>
+<dl>
+  <dt>Precio</dt>
+  <dd><%= sprintf("%0.2f", @liquor.price) %></dd>
+  <dt>Productor</dt>
+  <dd><%= @liquor.producer.name %></dd>
+  <dt>Blurb</dt>
+  <%= RedCloth.new(@liquor.blurb).to_html.html_safe if @liquor.blurb %>
+</dl>
+
+<p><%= link_to 'Catálogo', :action => 'index' %> </p>
