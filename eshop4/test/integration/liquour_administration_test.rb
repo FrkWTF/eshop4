@@ -20,8 +20,8 @@ class LiquorsAdministrationTest < ActionDispatch::IntegrationTest
     george.list_liquors
     george.show_liquor new_liquor_ruby
 
-    george.edit_liquor new_liquor_ruby, :liquor=> {
-      :name => 'A very new Liquor of Ruby',
+    george.edit_liquor new_liquour_ruby, :liquour=> {
+      :name => 'A very new Liquour of Ruby',
       :producer_id => producer.id,
       :supplier_ids => [supplier.id],
       :produced_at => Time.now,

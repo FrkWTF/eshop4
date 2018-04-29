@@ -67,6 +67,6 @@ class LiquorTest < ActiveSupport::TestCase
     assert liquor.save
     liquor.reload
     assert_equal 2, liquor.suppliers.count
-    assert_equal 2, Supplier.find_by_first_name_and_last_name('Joel', 'Spolsky').liquors.
+    assert_equal 2, Supplier.find_by_first_name_and_last_name('Joel', 'Spolsky').liquors.count
   end
 end
