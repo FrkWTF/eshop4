@@ -20,7 +20,7 @@ class LiquorsAdministrationTest < ActionDispatch::IntegrationTest
     george.list_liquors
     george.show_liquor new_liquor_ruby
 
-    george.edit_liquor new_liquour_ruby, :liquour=> {
+    george.edit_liquor new_liquor_ruby, :liquor=> {
       :name => 'A very new Liquour of Ruby',
       :producer_id => producer.id,
       :supplier_ids => [supplier.id],
@@ -48,11 +48,9 @@ class LiquorsAdministrationTest < ActionDispatch::IntegrationTest
       assert_select 'select#liquor_producer_id' do
         assert_select "option[value=\"#{producer.id}\"]", producer.name
       end
-      # assert_tag :tag => 'option', :attributes => { :value => publisher.id }
       assert_select "select[name=\"liquor[supplier_ids][]\"]" do
         assert_select "option[value=\"#{supplier.id}\"]", supplier.name
       end
-      # assert_tag :tag => 'select', :attributes => { :name => 'book[author_ids][]' }
       post '/admin/liquor/create', parameters
       assert_response :redirect
       follow_redirect!
@@ -61,8 +59,7 @@ class LiquorsAdministrationTest < ActionDispatch::IntegrationTest
       page = Liquor.all.count / 5 + 1
       get "/admin/liquor/index/?page=#{page}"
       assert_select 'td', parameters[:liquor][:name]
-      # assert_tag :tag => 'td', :content => parameters[:book][:title]
-      liquor = Liquor.find_by_title(parameters[:liquor][:name])
+      liquor = Liquor.find_by_name(parameters[:liquor][:name])
       return liquor;
     end
 
@@ -77,7 +74,7 @@ class LiquorsAdministrationTest < ActionDispatch::IntegrationTest
       assert_template 'admin/liquor/show'
     end
 
-    def delete_liquour(liquour)
+    def delete_liquor(liquor)
       post "/admin/liquor/destroy?id=#{liquor.id}"
       assert_response :redirect
       follow_redirect!

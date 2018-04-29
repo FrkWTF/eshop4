@@ -6,7 +6,7 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
   test "browse" do
     jill = new_session_as :jill
     jill.index
-    jill.siguiente
+    jill.second_page
     jill.liquor_details 'Pride and Prejudice'
     jill.latest_liquors
   end
@@ -34,7 +34,7 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
       get '/catalog/index?page=2'
       assert_response :success
       assert_template 'catalog/index'
-      assert_equal Liquor.find_by_title('Pro Rails E-Commerce'),
+      assert_equal Liquor.find_by_name('Pro Rails E-Commerce'),
                    assigns(:liquors).last
       check_liquor_links
     end
@@ -64,7 +64,7 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
       @liquors = Liquor.latest(5)
       @liquors.each do |a|
         assert_select 'dt' do
-          assert_select 'a', a.title
+          assert_select 'a', a.name
         end
         # assert_tag :tag => 'dt', :content => a.title
       end
