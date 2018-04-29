@@ -7,7 +7,7 @@ class LiquourAdministrationTest < ActionDispatch::IntegrationTest
     supplier = Supplier.create(:first_name => 'John', :last_name => 'Anderson')
     george = new_session_as(:george)
 
-    new_liquour_ruby = george.add_liquour:liquour=> {
+    new_liquour_ruby = george.add_liquor :liquor=> {
       :name => 'A new Liquour of Ruby',
       :producer_id => producer.id,
       :supplier_ids => [supplier.id],
@@ -17,10 +17,10 @@ class LiquourAdministrationTest < ActionDispatch::IntegrationTest
       :price => 45.5
     }
 
-    george.list_liquours
-    george.show_liquour new_liquour_ruby
+    george.list_liquors
+    george.show_liquor new_liquour_ruby
 
-    george.edit_liquour new_liquour_ruby, :liquour=> {
+    george.edit_liquor new_liquour_ruby, :liquour=> {
       :name => 'A very new Liquour of Ruby',
       :producer_id => producer.id,
       :supplier_ids => [supplier.id],

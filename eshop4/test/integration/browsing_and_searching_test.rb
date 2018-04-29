@@ -6,7 +6,7 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
   test "browse" do
     jill = new_session_as :jill
     jill.index
-    jill.second_page
+    jill.siguiente
     jill.liquor_details 'Pride and Prejudice'
     jill.latest_liquors
   end
