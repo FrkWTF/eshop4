@@ -6,7 +6,7 @@ class LiquorTest < ActiveSupport::TestCase
   test "failing_create" do
     liquor = Liquor.new
     assert_equal false, liquor.save
-    assert_equal 8, liquor.errors.count
+    assert_equal 6, liquor.errors.count
     assert liquor.errors[:name]
     assert liquor.errors[:producer]
     assert liquor.errors[:suppliers]

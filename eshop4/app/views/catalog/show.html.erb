@@ -9,7 +9,7 @@
   <dd><%= sprintf("%0.2f", @liquor.price) %></dd>
   <dt>Productor</dt>
   <dd><%= @liquor.producer.name %></dd>
-  <dt>Blurb</dt>
+  <dt>Descripción</dt>
   <%= RedCloth.new(@liquor.blurb).to_html.html_safe if @liquor.blurb %>
 </dl>
 
