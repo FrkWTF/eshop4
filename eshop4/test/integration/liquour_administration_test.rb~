@@ -62,8 +62,8 @@ class LiquorsAdministrationTest < ActionDispatch::IntegrationTest
       get "/admin/liquor/index/?page=#{page}"
       assert_select 'td', parameters[:liquor][:name]
       # assert_tag :tag => 'td', :content => parameters[:book][:title]
-      liquor = Liquor.find_by_title(parameters[:liquor][:name])
-      return liquor;
+      liquour = Liquor.find_by_title(parameters[:liquor][:name])
+      return liquour;
     end
 
     def edit_liquor(liquor, parameters)
@@ -74,17 +74,17 @@ class LiquorsAdministrationTest < ActionDispatch::IntegrationTest
       assert_response :redirect
       follow_redirect!
       assert_response :success
-      assert_template 'admin/liquor/show'
+      assert_template 'admin/liquour/show'
     end
 
     def delete_liquour(liquour)
-      post "/admin/liquor/destroy?id=#{liquor.id}"
+      post "/admin/liquour/destroy?id=#{liquour.id}"
       assert_response :redirect
       follow_redirect!
       assert_template 'admin/liquor/index'
     end
 
-    def show_liquor(liquor)
+    def show_liquour(liquour)
       get "/admin/liquor/show/#{liquor.id}"
       assert_response :success
       assert_template 'admin/liquor/show'
