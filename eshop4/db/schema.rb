@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419140917) do
+ActiveRecord::Schema.define(version: 20180421011103) do
 
   create_table "liquors", force: :cascade do |t|
     t.string   "name",                     limit: 255,   null: false
     t.integer  "producer_id",              limit: 4,     null: false
     t.datetime "produced_at"
-    t.string   "serial_number",            limit: 13
+    t.string   "serial_number",            limit: 5
     t.text     "blurb",                    limit: 65535
     t.float    "price",                    limit: 24
     t.datetime "created_at"
