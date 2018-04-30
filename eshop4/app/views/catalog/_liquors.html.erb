@@ -2,6 +2,7 @@
   <% for liquor in @liquors %>
     <dt>
       <%= link_to liquor.name, :action => 'show', :id => liquor %>
+      <%= link_to '+', :controller => 'cart', :action => 'add', :id => liquor %>
     </dt>
     <% for supplier in liquor.suppliers %>
       <dd><%= supplier.last_name %>, <%= supplier.first_name %></dd>
