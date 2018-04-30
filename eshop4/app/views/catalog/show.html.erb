@@ -1,4 +1,4 @@
-<h2>by <%=@liquor.supplier_names %></h2>
+<h2>por <%=@liquor.supplier_names %></h2>
 <% if @liquor.cover_image.exists? then %>
   <dd><%= image_tag @liquor.cover_image.url %></dd>
 <% else %>

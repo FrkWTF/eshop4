@@ -21,12 +21,9 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
       assert_select 'dl#liquors' do
         assert_select 'dt', :count => 5
       end
-      # assert_tag :tag => 'dl', :attributes => { :id => 'books' },
-      #            :children => { :count => 5, :only => { :tag => 'dt' }}
       assert_select 'dt' do
         assert_select 'a', 'The Idiot'
       end
-      # assert_tag :tag => 'dt', :content => 'The Idiot'
       check_liquor_links
     end
 
@@ -46,10 +43,8 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
       assert_template 'catalog/show'
       assert_select 'div#content' do
         assert_select 'h1', @liquor.name
-        assert_select 'h2', "by #{@liquor.suppliers.map{|a| a.name}.join(", ")}"
+        assert_select 'h2', "por #{@liquor.suppliers.map{|a| a.name}.join(", ")}"
       end
-      # assert_tag :tag => 'h1', :content => @book.title
-      # assert_tag :tag => 'h2', :content => "by #{@book.authors.map{|a| a.name}.join(", ")}"
     end
 
     def latest_liquors
@@ -59,14 +54,11 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
       assert_select 'dl#liquors' do
         assert_select 'dt', :count => 5
       end
-      # assert_tag :tag => 'dl', :attributes => { :id => 'books' },
-      #            :children => { :count => 5, :only => { :tag => 'dt' } }
       @liquors = Liquor.latest(5)
       @liquors.each do |a|
         assert_select 'dt' do
           assert_select 'a', a.name
         end
-        # assert_tag :tag => 'dt', :content => a.title
       end
     end
 
@@ -75,7 +67,6 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
         assert_select 'a' do
           assert_select '[href=?]', "/catalog/show/#{liquor.id}"
         end
-        # assert_tag :tag => 'a', :attributes => { :href => "/catalog/show/#{book.id}" }
       end
     end
   end

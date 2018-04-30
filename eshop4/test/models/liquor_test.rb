@@ -13,7 +13,6 @@ class LiquorTest < ActiveSupport::TestCase
     assert liquor.errors[:produced_at]
     assert liquor.errors[:serial_number]
     assert liquor.errors[:blurb]
-   # assert liquor.errors[:page_count]
     assert liquor.errors[:price]
   end
 
@@ -25,7 +24,6 @@ class LiquorTest < ActiveSupport::TestCase
       :produced_at => Time.now,
       :serial_number => '123',
       :blurb => 'A great liquor',
-      #:page_count => 375,
       :price => 45.5
     )
   assert liquor.save
@@ -42,7 +40,6 @@ class LiquorTest < ActiveSupport::TestCase
       :produced_at => Time.now,
       :serial_number => '123',
       :blurb => 'E-Commerce on Rails',
-      #:page_count => 400,
       :price => 55.5
     )
     apress.liquors << liquor
@@ -61,7 +58,6 @@ class LiquorTest < ActiveSupport::TestCase
       :produced_at => Time.now,
       :serial_number => '123',
       :blurb => 'E-Commerce on Rails',
-      #:page_count => 400,
       :price => 55.5
     )
     assert liquor.save
