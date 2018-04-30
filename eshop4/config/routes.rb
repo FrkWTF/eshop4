@@ -32,9 +32,16 @@ Rails.application.routes.draw do
   get 'admin/liquor/show'
   get 'admin/liquor/show/:id' => 'admin/liquor#show'
   get 'admin/liquor/index'
-  
+
   get 'catalog/show'
   get 'catalog/show/:id' => 'catalog#show'
   get 'catalog/index'
   get 'catalog/latest'
+
+  get 'cart/add'
+  post 'cart/add'
+  get 'cart/remove'
+  post 'cart/remove'
+  get 'cart/clear'
+  post 'cart/clear'
 end
