@@ -3,7 +3,7 @@ class CartController < ApplicationController
 
   def add
     @liquor = Liquor.find params[:id]
-    @page_title = 'Añadir item'
+    @page_title = 'Añadir ítem'
     if request.post?
       @item = @cart.add params[:id]
       flash[:cart_notice] = "Añadido <em>#{@item.liquor.name}</em>."
@@ -15,7 +15,7 @@ class CartController < ApplicationController
 
   def remove
     @liquor = Liquor.find params[:id]
-    @page_title = 'Eliminar item'
+    @page_title = 'Eliminar ítem'
     if request.post?
       @item = @cart.remove params[:id]
       flash[:cart_notice] = "Eliminado 1 <em>#{@item.liquor.name}</em>."

@@ -22,7 +22,8 @@ class CartControllerTest < ActionController::TestCase
 
   test "clear" do
     post :add, :id => 4
-    assert_equal [Liquor.find(4)], Cart.find(@request.session[:cart_id]).liquors
+    post :add, :id => 1
+    assert_equal [Liquor.find(4), Liquor.find(1)], Cart.find(@request.session[:cart_id]).liquors
 
     post :clear
     assert_response :redirect
