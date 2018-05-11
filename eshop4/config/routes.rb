@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+
+
+
+
   root :to => 'catalog#index'
 
   get 'about' => 'about#index'
+  get 'checkout' => 'checkout#index'
   get 'admin/producer' => 'admin/producer#index'
   get 'admin/supplier' => 'admin/supplier#index'
   get 'admin/liquor' => 'admin/liquor#index'
+  get 'admin/order' => 'admin/order#index'
 
   get 'admin/producer/new'
   post 'admin/producer/create'
@@ -44,4 +50,14 @@ Rails.application.routes.draw do
   post 'cart/remove'
   get 'cart/clear'
   post 'cart/clear'
+
+  get 'checkout/index'
+  post 'checkout/submit_order'
+  get 'checkout/thank_you'
+
+  post 'admin/order/close'
+  post 'admin/order/destroy'
+  get 'admin/order/show'
+  get 'admin/order/show/:id' => 'admin/order#show'
+  get 'admin/order/index'
 end

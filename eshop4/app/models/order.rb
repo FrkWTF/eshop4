@@ -37,6 +37,14 @@ class Order < ActiveRecord::Base
     sum
   end
 
+  def amount
+    sum = 0
+    order_items.each do |item|
+      sum += item.amount
+    end
+    sum
+  end
+
   def process
     begin
       raise 'A closed order cannot be processed again' if self.closed?
