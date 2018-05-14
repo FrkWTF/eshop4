@@ -3,10 +3,10 @@ class CheckoutController < ApplicationController
 
   def index
     @order = Order.new
-    @page_title = 'Confirmación de Pago'
+    @page_title = 'Facturación'
     if @cart.liquors.empty?
       flash[:notice] = 'Su carrito de la compra esta vacío! ' +
-                       'Por favor añade al menos un licor para proceder al pago.'
+                       'Por favor añada al menos un licor para proceder al pago.'
       redirect_to :controller => 'catalog'
     end
   end

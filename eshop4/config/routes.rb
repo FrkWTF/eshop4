@@ -60,4 +60,16 @@ Rails.application.routes.draw do
   get 'admin/order/show'
   get 'admin/order/show/:id' => 'admin/order#show'
   get 'admin/order/index'
+
+  get 'user_session/new'
+  get 'user_session/create' # for showing failed login screen after restarting web server
+  post 'user_session/create'
+  get 'user_session/destroy'
+
+  get 'user/new'
+  post 'user/create'
+  get 'user/show'
+  get 'user/show/:id' => 'user#show'
+  get 'user/edit'
+  post 'user/update'
 end

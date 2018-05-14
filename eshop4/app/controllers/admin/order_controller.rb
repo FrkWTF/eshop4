@@ -1,4 +1,4 @@
-class Admin::OrderController < ApplicationController
+class Admin::OrderController < Admin::AuthenticatedController
   def close
     order = Order.find(params[:id])
     order.close
@@ -14,7 +14,7 @@ class Admin::OrderController < ApplicationController
   def index
     @status = params[:id]
     if @status.blank?
-      @status = 'todos'
+      @status = 'todos los'
       conditions = nil
     else
       conditions = "status = '#{@status}'"

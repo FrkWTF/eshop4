@@ -1,4 +1,4 @@
-class Admin::LiquorController < ApplicationController
+class Admin::LiquorController < Admin::AuthenticatedController
   def new
     load_data
     @liquor = Liquor.new
