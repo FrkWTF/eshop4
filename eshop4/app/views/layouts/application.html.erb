@@ -12,7 +12,7 @@
     <h2 id="slogan">Drinks on Rails</h2>
     <% if current_user %>
      <p id="loginlogout">
-       Logged in as <%= current_user.login %>
+       Identificado como <%= current_user.login %>
        (<%= link_to "Editar Cuenta", :controller => '/user', :action => :show %>)
        <br/>
        (<%= link_to "Cerrar sesión", :controller => '/user_session', :action => :destroy %>)
@@ -22,7 +22,7 @@
        <% if User.count == 0 %>
          (<%= link_to "Crear Cuenta", :controller => '/user', :action => :new %>)
        <% else %>
-         (<%= link_to "Identificarse", :controller => '/user_session', :action => :new %>)
+         (<%= link_to "Iniciar sesión", :controller => '/user_session', :action => :new %>)
        <% end %>
      </p>
    <% end %>
