@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
   <div id="errorExplanation">
-  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this account from being created:</h2>
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibió que se creara esta cuenta:</h2>
     <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,12 +10,12 @@
 <% end %>
 
 <div class="field">
-  <p><label for="user_name">Name</label><br/>
+  <p><label for="user_name">Nombre</label><br/>
   <%= text_field 'user', 'name' %></p>
 </div>
 
 <div class="field">
-  <p><label for="user_login">Login</label><br/>
+  <p><label for="user_login">Usuario</label><br/>
   <%= text_field 'user', 'login' %></p>
 </div>
 
@@ -25,11 +25,11 @@
 </div>
 
 <div class="field">
-  <p><label for="user_password">Password</label><br/>
+  <p><label for="user_password">Contraseña</label><br/>
   <%= password_field 'user', 'password' %></p>
 </div>
 
 <div class="field">
-  <p><label for="user_password_confirmation">Confirm password</label><br/>
+  <p><label for="user_password_confirmation">Confirmación de Contraseña</label><br/>
   <%= password_field 'user', 'password_confirmation' %></p>
 </div>
