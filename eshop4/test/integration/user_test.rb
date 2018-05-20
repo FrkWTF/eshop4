@@ -28,7 +28,7 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_response :success
       assert_template 'user/new'
       assert_select 'div#content' do
-        assert_select 'h1', 'Create new account'
+        assert_select 'h1', 'Crear nueva cuenta'
         assert_select 'input#user_name'
       end
       post '/user/create', parameters
@@ -38,11 +38,11 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_template 'user/show'
       assert_select 'div#content' do
         assert_select 'h1', user_name
-        assert_select 'dt', 'Name'
+        assert_select 'dt', 'Nombre'
         assert_select 'dd', user_name
       end
-      assert_equal flash[:notice], "Account #{user_name} was succesfully created. User logged in."
-      assert_select 'div#notice', "Account #{user_name} was succesfully created. User logged in."
+      assert_equal flash[:notice], "Cuenta #{user_name} se creo correctamente. Usuario identificado."
+      assert_select 'div#notice', "Cuenta #{user_name} se creo correctamente. Usuario identificado."
       return User.find_by_login(parameters[:user][:login])
     end
 
@@ -52,7 +52,7 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_template 'user/show'
       assert_select 'div#content' do
         assert_select 'h1', user_account.name
-        assert_select 'dt', 'Name'
+        assert_select 'dt', 'Nombre'
         assert_select 'dd', user_account.name
       end
     end
@@ -63,7 +63,7 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_response :success
       assert_template 'user/edit'
       assert_select 'div#content' do
-        assert_select 'h1', 'Edit account'
+        assert_select 'h1', 'Editar cuenta'
         assert_select 'input#user_name'
       end
       post '/user/update', parameters
@@ -74,11 +74,11 @@ class UserTest < ActionDispatch::IntegrationTest
       user_name = parameters[:user][:name]
       assert_select 'div#content' do
         assert_select 'h1', user_name
-        assert_select 'dt', 'Name'
+        assert_select 'dt', 'Nombre'
         assert_select 'dd', user_name
       end
-      assert_equal flash[:notice], "Account #{user_name} was succesfully updated."
-      assert_select 'div#notice', "Account #{user_name} was succesfully updated."
+      assert_equal flash[:notice], "Cuenta #{user_name} fue actualizada correctamente."
+      assert_select 'div#notice', "Cuenta #{user_name} fue actualizada correctamente."
 
     end
   end

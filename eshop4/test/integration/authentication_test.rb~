@@ -40,7 +40,7 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
     def fails_login(login, password)
       post_login(login, password)
       assert_response :success
-      assert_template 'user_sessions/new'
+      assert_template 'user_session/new'
       assert_select 'div#content' do
         assert_select 'div#errorExplanation'
         assert_select 'li', 'Login is not valid'
@@ -51,7 +51,7 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
     private
 
     def post_login(login, password)
-      post '/user_sessions/create', :user_session => { :login => login, :password => password }
+      post '/user_session/create', :user_session => { :login => login, :password => password }
     end
   end
 
