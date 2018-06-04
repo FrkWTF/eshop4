@@ -1,0 +1,12 @@
+<p>
+    Introduzca el nombre (o parte del nombre) del licor que quiere buscar.
+</p>
+<%= render :partial => 'search_box' %>
+
+<% if @liquors %>
+    <p>
+    Resultado de la búsqueda ' <%= params[:q] %>':
+    <%= pluralize @liquors.size , 'resultado' , 'resultados' %>
+    </p>
+    <%= render(:partial => 'liquors') %>
+<% end %>
