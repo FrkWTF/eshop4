@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-
-
-
-
   root :to => 'catalog#index'
 
   get 'about' => 'about#index'
