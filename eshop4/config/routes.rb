@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   get 'catalog/index'
   get 'catalog/latest'
   get 'catalog/rss'
-
+  get 'catalog/search'
+  
   get 'cart/add'
   post 'cart/add'
   get 'cart/remove'
