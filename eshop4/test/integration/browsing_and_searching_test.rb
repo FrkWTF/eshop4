@@ -78,4 +78,19 @@ class BrowsingAndSearchingTest < ActionDispatch::IntegrationTest
       yield session if block_given?
     end
   end
+
+  def views_latest_liquors
+    get "/catalog/latest"
+    assert_response :success
+    assert_template "catalog/latest"
+
+    assert_select "dl#liquors" do 
+      assert_select "dt" { :count => 5 }
+    end
+
+    Liquor.latest.each do |liquor|
+      assert_select "dt", text => liquor.name
+    end
+    check_liquors_links
+    end
 end

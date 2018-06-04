@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180514100123) do
     t.string   "name",                     limit: 255,   null: false
     t.integer  "producer_id",              limit: 4,     null: false
     t.datetime "produced_at"
-    t.string   "serial_number",            limit: 5
+    t.string   "serial_number",            limit: 13
     t.text     "blurb",                    limit: 65535
     t.float    "price",                    limit: 24
     t.datetime "created_at"

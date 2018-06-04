@@ -16,4 +16,10 @@ class CatalogController < ApplicationController
     @liquors = Liquor.latest 5 # invoques "latest" method to get the five latest books
     @page_title = 'Últimos licores'
   end
+
+  def rss
+    latest
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; version=1.0; charset=utf-8"
+  end
 end

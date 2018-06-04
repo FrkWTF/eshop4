@@ -47,10 +47,10 @@ class Order < ActiveRecord::Base
 
   def process
     begin
-      raise 'A closed order cannot be processed again' if self.closed?
+      raise 'Un pedido cerrado no puede ser procesado de nuevo' if self.closed?
       active_merchant_payment
     rescue => e
-      logger.error("Pedido #{id} fallo originado por excepción: #{e}.")
+      logger.error("El pedido #{id} ha fallado por la excepción: #{e}.")
       self.error_message = "Excepción originada: #{e}"
       self.status = 'failed'
     end
@@ -113,7 +113,7 @@ class Order < ActiveRecord::Base
         self.error_message = response.message
       end
     else
-      self.error_message = 'Tarjeta de credito no valida'
+      self.error_message = 'Tarjeta de credito no válida'
     end
   end
 
